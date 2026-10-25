@@ -1,0 +1,85 @@
+================================================================================
+               TASK 3: SALES PREDICTION MODEL SUMMARY REPORT
+                  WeIntern Pvt Ltd - Machine Learning Division
+================================================================================
+
+1. MODEL ARCHITECTURE SPECIFICATIONS
+--------------------------------------------------------------------------------
+Model Class           : RandomForestRegressor
+Number of Estimators  : 200 de-correlated decision trees
+Splitting Criterion   : squared_error (Mean Squared Error reduction)
+Max Tree Depth        : None (unconstrained expansion with leaf stop)
+Min Samples Split     : 2
+Min Samples Leaf      : 1
+Bootstrap Resampling  : True
+Total Input Features  : 43 attributes
+
+2. TEST SET PERFORMANCE METRICS (N = 500 Unseen Orders)
+--------------------------------------------------------------------------------
+Root Mean Squared Error (RMSE) : $174.31
+Mean Absolute Error (MAE)      : $96.54
+R-Squared Score (R^2)          : 0.9830 (98.30% variance explained)
+Mean Abs. Percentage Error     : 8.96%
+
+3. ALL 43 PREDICTOR FEATURES RANKED BY IMPORTANCE
+--------------------------------------------------------------------------------
+Rank   Feature Name                        Importance      Percentage
+--------------------------------------------------------------------------------
+1      unit_price                          0.656691         65.67%
+2      quantity                            0.324742         32.47%
+3      discount                            0.006218          0.62%
+4      marketing_spend                     0.001739          0.17%
+5      month                               0.001312          0.13%
+6      marketing_spend_rolling_7           0.001245          0.12%
+7      category_sales_lag_1                0.001236          0.12%
+8      marketing_spend_lag_1               0.001091          0.11%
+9      day_of_week                         0.000942          0.09%
+10     store_size_sqft                     0.000628          0.06%
+11     quarter                             0.000626          0.06%
+12     payment_method_Net Banking          0.000339          0.03%
+13     is_weekend                          0.000332          0.03%
+14     region_North                        0.000270          0.03%
+15     customer_segment_Corporate          0.000223          0.02%
+16     year                                0.000218          0.02%
+17     ship_mode_Same Day                  0.000216          0.02%
+18     ship_mode_Standard Class            0.000200          0.02%
+19     sub_category_Laptops                0.000186          0.02%
+20     region_South                        0.000176          0.02%
+21     region_East                         0.000174          0.02%
+22     customer_segment_Home Office        0.000149          0.01%
+23     ship_mode_Second Class              0.000147          0.01%
+24     region_West                         0.000143          0.01%
+25     sub_category_Smartphones            0.000133          0.01%
+26     payment_method_Debit Card           0.000119          0.01%
+27     sub_category_Printers               0.000107          0.01%
+28     payment_method_E-Wallet             0.000097          0.01%
+29     category_Furniture                  0.000051          0.01%
+30     category_Technology                 0.000049          0.00%
+31     sub_category_Bookcases              0.000047          0.00%
+32     sub_category_Furnishings            0.000039          0.00%
+33     sub_category_Chairs                 0.000028          0.00%
+34     sub_category_Tables                 0.000026          0.00%
+35     sub_category_Outerwear              0.000014          0.00%
+36     sub_category_Footwear               0.000014          0.00%
+37     category_Office Supplies            0.000008          0.00%
+38     sub_category_Sportswear             0.000006          0.00%
+39     sub_category_Storage                0.000006          0.00%
+40     sub_category_Casuals                0.000005          0.00%
+41     sub_category_Appliances             0.000004          0.00%
+42     sub_category_Paper                  0.000003          0.00%
+43     sub_category_Binders                0.000003          0.00%
+
+4. SAMPLE LIVE PREDICTIONS
+--------------------------------------------------------------------------------
+Sample #001 -> Actual: $ 2448.34 | Predicted: $ 2199.95 | Error: $-248.39 (10.15%)
+Sample #011 -> Actual: $  483.45 | Predicted: $  664.08 | Error: $ 180.63 (37.36%)
+Sample #026 -> Actual: $  356.43 | Predicted: $  376.13 | Error: $  19.70 ( 5.53%)
+Sample #051 -> Actual: $  488.58 | Predicted: $  494.29 | Error: $   5.71 ( 1.17%)
+Sample #101 -> Actual: $  506.92 | Predicted: $  556.26 | Error: $  49.34 ( 9.73%)
+
+5. OPERATIONAL GUIDELINES
+--------------------------------------------------------------------------------
+- Primary Drivers: unit_price and quantity drive ~98% of variance in sales volume.
+- Safe Domain: Validated for transactions between $23.00 and $7,500.00.
+- Extrapolation Notice: Tree models do not extrapolate beyond maximum training range.
+================================================================================
